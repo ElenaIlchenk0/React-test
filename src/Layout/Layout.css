@@ -1,0 +1,14 @@
+.Layout {
+    max-width: 1040px;
+    height: 100vh;
+    padding: 0px 20px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.mainContent {
+    height: calc(100vh - 50px);
+    padding: 40px 0;
+    box-sizing: border-box;
+}

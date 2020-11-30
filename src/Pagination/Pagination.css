@@ -1,0 +1,9 @@
+.Pagination {
+    display: flex;
+    height: 50px;
+}
+.Pagination div {
+    margin: 10px;
+    color: #aeaeae;
+    cursor: pointer;
+}
