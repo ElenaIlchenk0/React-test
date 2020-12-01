@@ -18,6 +18,11 @@
 }
 .content_wrapper h3 {
     margin: 0 0 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .content_wrapper .text {
     margin: 10px 0;
@@ -44,4 +49,13 @@
 .content_wrapper a {
     text-decoration: none;
     color: #0099ff;
+}
+
+@media (max-width: 480px) {
+    .img_wrapper img {
+        display: none;
+    }
+    .img_wrapper {
+        margin-right: 0;
+    }
 }
