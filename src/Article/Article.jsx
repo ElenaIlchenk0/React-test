@@ -8,9 +8,7 @@ function Article(props) {
     let dateFormat = `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`;
   
     return(
-        <div className={
-            props.inactive ? "Article inactive" : "Article"
-        }>
+        <div className={`Article ${props.inactive ? 'inactive' : ''}`}>
             <div className="img_wrapper">
                 <img src={props.articleItem.img} alt=""/>
             </div>

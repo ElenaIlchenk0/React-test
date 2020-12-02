@@ -43,11 +43,7 @@ const articlesRender = (i, arr) => {
     let lastArt = perPage * i -1;
     let firstArt = lastArt - perPage +1;
 
-    return arr.map((articleItem, index) => {
-        return index >= firstArt && index <= lastArt
-            ? <Article articleItem={articleItem} key={index}/>
-            : <Article articleItem={articleItem} key={index} inactive/>
-    })
+    return arr.map((articleItem, index) => <Article articleItem={articleItem} key={index} inactive={!(index >= firstArt && index <= lastArt)} />)
 }
 
 function Layout() {
@@ -59,24 +55,24 @@ function Layout() {
         setPage(1);
     }
 
+    const getArticles = (sort) => {
+        switch(sort) {
+            case 'date':
+                return articlesRender(page, sortByDate());
+            case 'alfabet':
+                return articlesRender(page, sortByAlfabet());
+            default:
+                return articlesRender(page, articleInfo)
+        }
+    }
+
     return(
         <div className="Layout">
             <div className="mainContent">
                 <Header changeSorting={(v) => changeSortingHandler(v)} />
 
                 <div className="articlesWrapper">
-                    {
-                        (function() {
-                            switch(sort) {
-                                case 'date':
-                                    return articlesRender(page, sortByDate());
-                                case 'alfabet':
-                                    return articlesRender(page, sortByAlfabet());
-                                default:
-                                    return articlesRender(page, articleInfo)
-                            }
-                        })(sort)
-                    }
+                    { getArticles(sort) }
                 </div>
             </div>
 

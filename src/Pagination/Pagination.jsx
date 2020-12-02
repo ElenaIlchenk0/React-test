@@ -1,10 +1,6 @@
 import './Pagination.css';
 
-let countPages;
-
-const pagesRender = (properties) => {
-    countPages = Math.ceil(properties.allItems / properties.perPage);
-
+const pagesRender = (countPages, properties) => {
     const arr =[];
 
     for(let i = 1; i <= countPages; i++) {
@@ -22,21 +18,27 @@ const pagesRender = (properties) => {
 }
 
 function Pagination(props) {
+    let countPages = Math.ceil(props.allItems / props.perPage);
+
     return(
         <div className="Pagination">
             <div className="prev" onClick={() => {
                 if (props.activePage > 1) {
                     props.clickHandler(props.activePage - 1)
                 }
-                }}> &#10094; </div>
+                }}> &#10094; 
+            </div>
+
             {
-                pagesRender(props)
+                pagesRender(countPages, props)
             }
+
             <div className="next" onClick={() => {
                 if (props.activePage < countPages) {
                     props.clickHandler(props.activePage + 1 )
                 }
-                }}> &#10095; </div>
+                }}> &#10095; 
+            </div>
         </div>
     ) 
 }
