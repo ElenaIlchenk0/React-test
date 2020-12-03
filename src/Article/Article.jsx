@@ -6,7 +6,7 @@ function Article(props) {
 
     let date = new Date(+props.articleItem.date * 1000);
     let dateFormat = `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()}`;
-  
+
     return(
         <div className={`Article ${props.inactive ? 'inactive' : ''}`}>
             <div className="img_wrapper">
@@ -17,11 +17,11 @@ function Article(props) {
 
                 <div className="icons">
                     <IconContext.Provider value={{ color: "#aeaeae" }}>
-                        <div className="icons_item">
+                        <div className="icons_item" data-testid="date">
                             <FaCalendarAlt />
-                            <span>{dateFormat}</span>
+                            <span>{ dateFormat }</span>
                         </div>
-                        <div className="icons_item">
+                        <div className="icons_item" data-testid="views">
                             <FaEye />
                             <span>{props.articleItem.views}</span>
                         </div>

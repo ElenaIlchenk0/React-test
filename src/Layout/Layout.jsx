@@ -2,48 +2,21 @@ import React from 'react';
 import { useState } from 'react';
 import './Layout.css';
 import Header from '../Header/Header';
-import Article from '../Article/Article';
 import Pagination from '../Pagination/Pagination';
 import articleInfo from '../list';
+import { sortByAlfabet } from '../utils/sorting/sortByAlfabet';
+import { sortByDate } from '../utils/sorting/sortByDate';
+import { articlesRender } from './utils/articlesRender';
 
-const sortByDate = () => {
-    let sorted = [...articleInfo];
-
-    sorted.sort(function(a, b) {
-        if (a.date > b.date) {
-            return -1;
-          }
-        if (a.date < b.date) {
-            return 1;
-        }
-        return 0;
-    });
-
-    return sorted;
-}
-
-const sortByAlfabet = () => {
-    let sorted = [...articleInfo];
-
-    sorted.sort(function(a, b) {
-        if (a.title > b.title) {
-            return 1;
-          }
-        if (a.title < b.title) {
-            return -1;
-        }
-        return 0;
-    });
-
-    return sorted;
-}
-
-const articlesRender = (i, arr) => {
-    let perPage = 3;
-    let lastArt = perPage * i -1;
-    let firstArt = lastArt - perPage +1;
-
-    return arr.map((articleItem, index) => <Article articleItem={articleItem} key={index} inactive={!(index >= firstArt && index <= lastArt)} />)
+const getArticles = (sort, page) => {
+    switch(sort) {
+        case 'date':
+            return articlesRender(page, sortByDate(articleInfo));
+        case 'alfabet':
+            return articlesRender(page, sortByAlfabet(articleInfo));
+        default:
+            return articlesRender(page, articleInfo)
+    }
 }
 
 function Layout() {
@@ -55,24 +28,13 @@ function Layout() {
         setPage(1);
     }
 
-    const getArticles = (sort) => {
-        switch(sort) {
-            case 'date':
-                return articlesRender(page, sortByDate());
-            case 'alfabet':
-                return articlesRender(page, sortByAlfabet());
-            default:
-                return articlesRender(page, articleInfo)
-        }
-    }
-
     return(
         <div className="Layout">
             <div className="mainContent">
                 <Header changeSorting={(v) => changeSortingHandler(v)} />
 
                 <div className="articlesWrapper">
-                    { getArticles(sort) }
+                    { getArticles(sort, page) }
                 </div>
             </div>
 

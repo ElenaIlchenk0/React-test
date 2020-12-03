@@ -1,21 +1,5 @@
 import './Pagination.css';
-
-const pagesRender = (countPages, properties) => {
-    const arr =[];
-
-    for(let i = 1; i <= countPages; i++) {
-        arr.push(
-            <div 
-                style={{ color: (properties.activePage === i) ? '#333' : 'grey' }}
-                onClick={() => properties.clickHandler(i)}
-                key={i}>
-                    {i}
-            </div>
-        );
-    }
-
-    return arr;
-}
+import { pagesRender } from '../utils/pagesRender/pagesRender';
 
 function Pagination(props) {
     let countPages = Math.ceil(props.allItems / props.perPage);
@@ -28,10 +12,11 @@ function Pagination(props) {
                 }
                 }}> &#10094; 
             </div>
-
+            <div className="countPages" data-testid="countPages">
             {
                 pagesRender(countPages, props)
             }
+            </div>
 
             <div className="next" onClick={() => {
                 if (props.activePage < countPages) {
