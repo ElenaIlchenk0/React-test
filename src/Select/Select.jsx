@@ -6,7 +6,7 @@ function Select(props) {
         <select name="sort" onChange={(e) => props.changeSorting(e.target.value)}>
             <option value="default" defaultValue>Сортировать</option>
             <option value="date">По дате</option>
-            <option value="alfabet">По алфавиту</option>
+            <option value="alphabet">По алфавиту</option>
         </select>
     </div>
   ) 

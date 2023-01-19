@@ -1,10 +1,10 @@
-import { sortByAlfabet } from '../sortByAlfabet';
+import { sortByAlphabet } from '../sortByAlphabet';
 
-const fixuteres = [{title: "r"}, {title: "x"}, {title: "a"}];
+const fixtures = [{title: "r"}, {title: "x"}, {title: "a"}];
 
-describe('sortByAlfabet', ()=> {
+describe('sortByAlphabet', ()=> {
     it('should return sort ascending arr', () => {
-        const result = sortByAlfabet(fixuteres);
+        const result = sortByAlphabet(fixtures);
         
         expect(result).toEqual([{title: "a"}, {title: "r"}, {title: "x"}]);
     });

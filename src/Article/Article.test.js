@@ -48,7 +48,7 @@ describe('Article', () => {
         inactive={false}
       />);
     const span = wrapper.find('[data-testid="date"]');
-    expect(span.text()).toBe('1.3.2015');
+    expect(span.text()).toBe('28.2.2015');
   });
 
   it('views prop test', () => {

@@ -4,7 +4,7 @@ import './Layout.css';
 import Header from '../Header/Header';
 import Pagination from '../Pagination/Pagination';
 import articleInfo from '../list';
-import { sortByAlfabet } from '../utils/sorting/sortByAlfabet';
+import { sortByAlphabet } from '../utils/sorting/sortByAlphabet';
 import { sortByDate } from '../utils/sorting/sortByDate';
 import { articlesRender } from './utils/articlesRender';
 
@@ -12,8 +12,8 @@ const getArticles = (sort, page) => {
     switch(sort) {
         case 'date':
             return articlesRender(page, sortByDate(articleInfo));
-        case 'alfabet':
-            return articlesRender(page, sortByAlfabet(articleInfo));
+        case 'alphabet':
+            return articlesRender(page, sortByAlphabet(articleInfo));
         default:
             return articlesRender(page, articleInfo)
     }

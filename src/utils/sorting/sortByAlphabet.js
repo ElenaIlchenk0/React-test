@@ -1,4 +1,4 @@
-export const sortByAlfabet = (arr) => {
+export const sortByAlphabet = (arr) => {
     let sorted = [...arr];
 
     sorted.sort(function(a, b) {
