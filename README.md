@@ -1,21 +1,23 @@
-ТЗ: Разработать список новостей с пагинацией и возможностью сортировки по дате или заголовку в алфавитном порядке.
+# Test_Petshop
+
+## List of news with pagination and sorting
+
+#### Tecnical requrements:
+
+- Develop a paginated news list that can be sorted alphabetically by date or title.
 
 ==================
 
-Сделано с использованием react-create-app.
+Developed with react-create-app.
 
-Имеется адаптивность для средних и малых экранов.
+There is adaptability for medium and small screens.
 
 ==================
 
-Инструкция
-Запустить терминал в папке с проектом, затем:
-
-npm i
-
-После установки всех зависимостей:
-
-npm start
+#### Instructions:
+- Запустите терминал в папке проекта:
+- npm i
+- npm start
 
 ==================
 
