@@ -15,7 +15,7 @@ There is adaptability for medium and small screens.
 ==================
 
 #### Instructions:
-- Запустите терминал в папке проекта:
+- Run a terminal in the project folder
 - npm i
 - npm start
 
