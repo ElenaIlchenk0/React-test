@@ -13,7 +13,7 @@ Developed with react-create-app.
 
 There is adaptability for medium and small screens.
 
-Stack:
+### Stack:
 React, Jest, Enzyme
 
 ==================
